@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Siswa;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +21,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/about', function () {
+Route::get('about', function () {
     return view('about', [
         "title" => "About",
         "name" => "Berli",
@@ -27,8 +29,11 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/blog', function () {
+Route::get('blog', function () {
     return view('posts', [
         "title" => "Blog"
     ]);
 });
+
+
+Route::get('siswa', [Siswa::class, 'siswa']);

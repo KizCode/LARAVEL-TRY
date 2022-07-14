@@ -15,7 +15,7 @@
             @if ($murid['age'] >= 17)
                 Anda Sudah Bisa Mendapatakan SIM <br> 
             @elseif($murid['age'] < 17 )
-                Anda Belum Bisa Mendapatkan SIM<br>
+                Anda Belum Bisa Mendapatkan SIM <br>
             @endif
         @endforeach
     </fieldset>

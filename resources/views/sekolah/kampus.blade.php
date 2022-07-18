@@ -2,37 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
+    @foreach ($kampus as $dosen)
     <fieldset>
-        @foreach($dosen as $kampus)
-            Nama Dosen : {{ $kampus['nama'] }} <br>
-            Mata Kuliah : {{ $kampus['mata'] }} <br>
-            Mahasiswa <br>
-            @foreach($kampus['maha'] as $mahas)
-                {{ $mahas['nama'] }} - {{ $mahas['nilai'] }} <br>
+            Nama : {{ $dosen['nama'] }} <br>
+            Mata Kuliah : {{ $dosen['mata'] }} <br><br>
+            Nama : <br>
+            @php
+                $nilai=0;
+            @endphp
+            @foreach ($dosen['mahas'] as $mahas)
+            {{ $mahas['nama'] }} - {{ $mahas['nilai']}} <br>
 
-                Hasil : {{ $mahas['nilai'] + $mahas['nilai'] }} <br>
-                
-            @endforeach
+                @php 
+                    $nilai += $mahas['nilai'];
+                @endphp
             
-        @endforeach
-    </fieldset>
+            @endforeach
+
+            @php
+               $rata = $nilai /count($dosen['mahas'])
+            @endphp
+            <br>
+            Total Nilai Mahasiswa : {{ $nilai }} <br>
+            Rata - Rata Nilai Skripsi <b>{{$dosen['nama']}}</b> : {{ $rata }}
+            
+        </fieldset>
+    @endforeach
 </body>
 </html>
 
-@php
-//     $size = count($sekolah);
-// $keys = array_keys($sekolah);
-// for($i = 0; $i < $size; $i++)
-// {
-//     echo $keys[$i]. "<br>";
-//     foreach($sekolah[$keys[$i]] as $key => $value) {
-//         echo $key . " : " . $value . "<br>";
-//     }
-//     echo "<br>";
-
-@endphp

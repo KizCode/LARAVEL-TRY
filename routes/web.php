@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Kampus;
 use App\Http\Controllers\Siswa;
+use App\Http\Controllers\TokoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
  
@@ -39,3 +40,4 @@ Route::get('blog', function () {
 
 Route::get('siswa', [Siswa::class, 'siswa']);
 Route::get('kampus', [Kampus::class, 'kampus']);
+Route::get('toko', [TokoController::class, 'tampil']);
